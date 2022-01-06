@@ -38,18 +38,6 @@ TickCount = 2
 'last cell in column A
 LastRowA = ws.Cells(Rows.Count, 1).End(xlUp).Row
 
-'MsgBox ("Last row in column A is " & LastRowA)
-
-'Create column headers
-        ws.Cells(1, 9).Value = "Ticker"
-        ws.Cells(1, 10).Value = "Yearly Change"
-        ws.Cells(1, 11).Value = "Percent Change"
-        ws.Cells(1, 12).Value = "Total Stock Volume"
-        ws.Cells(1, 16).Value = "Ticker"
-        ws.Cells(1, 17).Value = "Value"
-        ws.Cells(2, 15).Value = "Greatest % Increase"
-        ws.Cells(3, 15).Value = "Greatest % Decrease"
-        ws.Cells(4, 15).Value = "Greatest Total Volume"
         
 'Loop through all rows
 For i = 2 To LastRowA
@@ -100,12 +88,6 @@ ws.Cells(TickCount, 12).Value = WorksheetFunction.Sum(Range(ws.Cells(j, 7), ws.C
             
 'last cell in Column I
 LastRowI = ws.Cells(Rows.Count, 9).End(xlUp).Row
-'MsgBox ("Last row in column I is " & LastRowI)
-        
-'Prepare for summary
-GreatVol = ws.Cells(2, 12).Value
-GreatIncr = ws.Cells(2, 11).Value
-GreatDecr = ws.Cells(2, 11).Value
         
 'Loop for summary
 For i = 2 To LastRowI
@@ -133,8 +115,6 @@ If ws.Cells(i, 11).Value < GreatDecr Then
     ws.Cells(3, 16).Value = ws.Cells(i, 9).Value
                 
                 Else
-                
-                GreatDecr = GreatDecr
                 
                 End If
                 
